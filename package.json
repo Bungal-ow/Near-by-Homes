@@ -8,7 +8,7 @@
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage --colors",
     "build:react": "webpack -d --watch",
-    "start": "node server/index.js",
+    "start": "nodemon server/index.js",
     "start-dev": "node server/index.js",
     "populateNeighborhoods": "node database/fakerPopulateNeighborhoods.js",
     "populateHouses": "node database/fakerPopulateHouses.js"
@@ -35,6 +35,8 @@
     "faker": "^4.1.0",
     "jquery": "^3.4.1",
     "mysql": "^2.18.1",
+    "nodemon": "^2.0.2",
+    "path": "^0.12.7",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-svg-loader": "^3.0.3",

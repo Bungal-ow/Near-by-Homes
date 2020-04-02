@@ -23,7 +23,9 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    this.getHouseData();
+    const splitUrl = window.location.href.split('/');
+    const index = splitUrl[3];
+    this.getHouseData(index);
   }
 
   getNeighborhoodData(neighborhood) {
@@ -46,13 +48,13 @@ class App extends React.Component {
       });
   }
 
-  getHouseData() {
+  getHouseData(index) {
     axios.get('/api/houses')
       .then((response) => {
         const { house, neighborhood } = this.state;
         if (!Object.keys(house).length) {
           this.setState({
-            house: response.data[0],
+            house: response.data[index],
             houses: response.data,
             neighborhood: { ...neighborhood },
           });
