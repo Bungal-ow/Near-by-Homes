@@ -64,6 +64,11 @@ app.put('/api/houses/', (req, res) => {
   });
 });
 
+app.get('/api/test/:id', (req, res) => {
+  console.log(req.params.id)
+  res.send('test is working')
+})
+
 app.get('/*', (req, res) => {
   res.sendFile(path.resolve(__dirname + '/../client/dist/index.html'));
 });
