@@ -22,6 +22,7 @@ app.get('/api/neighborhoods', (req, res) => {
   });
 });
 
+
 // handle vale: houseId
 app.get('/api/houses', (req, res) => {
   if (req.query.name) {
@@ -55,8 +56,7 @@ app.get('/api/houses', (req, res) => {
 });
 
 // handle vale: houseId
-app.put('/api/houses', (req, res) => {
-  console.log('here')
+app.put('/api/houses/', (req, res) => {
   db.updateHeart(req.body.params.houseId)
   .then((results) => res.status(200).json(results))
   .catch((err) => {
