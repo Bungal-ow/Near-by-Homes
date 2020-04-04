@@ -1,0 +1,15 @@
+id,name,trans,walk,past,future,med
+0,South of Market,80,93,-1,3,1950000
+1,Financial District,82,82,4,1,1442000
+2,Civic Center,88,93,-1,2,1788000
+3,Noe Valley,90,89,2,4,2013000
+4,Haight-Ashbury,79,95,-1,0,1543000
+5,Fillmore,81,86,-1,-2,1161000
+6,Nob Hill,73,86,-2,1,1765000
+7,Pacific Heights,74,76,3,-3,1626000
+8,Richmond,78,84,-2,1,2032000
+9,Sunset,80,82,-1,-3,1630000
+10,The Mission,72,94,-1,4,1934000
+11,Laurel Heights,89,81,1,4,2041000
+12,North Beach,98,73,0,0,1685000
+13,The Castro,76,74,4,-1,1201000
