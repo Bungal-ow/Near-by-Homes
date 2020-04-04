@@ -1,0 +1,20 @@
+This is the schema for cassandra
+
+CREATE KEYSPACE bungal-ow
+WITH replication = {'class':'SimpleStrategy', 'replication_factor' : 3};;
+
+CREATE TABLE bungal-ow.houses (
+    neighborhood VARCHAR PRIMARY KEY,
+    houseId uuid,
+    transit_score INT,
+    walk_score INT,
+    value_inc_dec_past INT,
+    value_inc_dec_future INT,
+    median_value INT,
+    home_cost INT ,
+    bedrooms INT,
+    bathrooms INT,
+    home_address VARCHAR,
+    sf INT,
+    home_image VARCHAR
+)

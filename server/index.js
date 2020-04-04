@@ -65,7 +65,7 @@ app.put('/api/houses/', (req, res) => {
 });
 
 app.get('/api/test/:id', (req, res) => {
-  console.log(req.params.id)
+  console.log(req.params)
   res.send('test is working')
 })
 

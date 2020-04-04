@@ -51,6 +51,7 @@ class App extends React.Component {
   getHouseData(index) {
     axios.get('/api/houses')
       .then((response) => {
+        console.log(response)
         const { house, neighborhood } = this.state;
         if (!Object.keys(house).length) {
           this.setState({
