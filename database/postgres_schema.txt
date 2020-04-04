@@ -26,3 +26,4 @@ CREATE TABLE houses (
     sf integer NOT NULL,
     home_image varchar (7) NOT NULL,
 );
+
