@@ -3,9 +3,9 @@ v2 for SDC project
 
 ### POST
 
-`/api/houses/{ houseId }/suscribe`
+`/api/houses/{ houseId }`
 
-**Purpose**: suscrie to house
+**Purpose**: create a new home
 
 ______________________________________________________
 ### GET
@@ -30,9 +30,9 @@ ______________________________________________________
 ```
 
 
-`/api/houses/{ houseId }/neighborhood`
+`/api/houses?neighborhood={neighborhood name}`
 
-**Purpose**: Retrieving nearby houses
+**Purpose**: Retrieving all houses in the neighborhood
 
 **Data Params**
 
@@ -79,9 +79,9 @@ ______________________________________________________
 ______________________________________________________
 ### PATCH
 
-`/api/houses/{ houseId }/likes`
+`/api/houses/{ houseId }`
 
-**Purpose**: Update subscribed status of a house.
+**Purpose**: Update info on house.
 
 **Data Params**
 
@@ -89,7 +89,7 @@ ______________________________________________________
 ______________________________________________________
 ### DELETE
 
-`/api/houses/{ houseId }/delete`
+`/api/houses/{ houseId }`
 
 **Purpose**: Removing a house.
 

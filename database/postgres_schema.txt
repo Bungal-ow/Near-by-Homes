@@ -25,5 +25,5 @@ CREATE TABLE houses (
     home_address varchar (30) NOT NULL,
     sf integer NOT NULL,
     home_image varchar (7) NOT NULL,
+    subs varchar,
 );
-

@@ -4,7 +4,7 @@ CREATE KEYSPACE bungal-ow
 WITH replication = {'class':'SimpleStrategy', 'replication_factor' : 3};;
 
 CREATE TABLE bungal-ow.houses (
-    neighborhood VARCHAR PRIMARY KEY,
+    neighborhood VARCHAR,
     houseId uuid,
     transit_score INT,
     walk_score INT,
@@ -17,4 +17,5 @@ CREATE TABLE bungal-ow.houses (
     home_address VARCHAR,
     sf INT,
     home_image VARCHAR
+    PRIMARY KEY ((neighborhood, houseId), (home_cost)) WITH CLUSTERIMG ORDER BY (home_cost)
 )
