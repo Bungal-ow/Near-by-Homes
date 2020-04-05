@@ -17,15 +17,19 @@ ______________________________________________________
 **Response**: JSON object containing a house's information
 ```json
 {
-      "id": int,
-      "neighborhood": string,
-      "home_cost": int,
-      "bedrooms": int,
-      "bathrooms": int,
-      "home_address": string,
-      "sf": int,
-      "home_image": url string,
-      "heart_filled": boolean
+    "neighborhood": "VARCHAR",
+    "houseId": "uuid",
+    "transit_score": "INT",
+    "walk_score": "INT",
+    "value_inc_dec_past": "INT",
+    "value_inc_dec_future": "INT",
+    "median_value": "INT",
+    "home_cost": "INT",
+    "bedrooms": "INT",
+    "bathrooms": "INT",
+    "home_address": "VARCHAR",
+    "sf": "INT",
+    "home_image": "VARCHAR"
 }
 ```
 
@@ -40,18 +44,21 @@ ______________________________________________________
 
 **Response**: JSON object containing an array of homes in the neighborhood.
 ```json
-[
-    {
-        "id": int,
-        "neighborhood": string,
-        "home_cost": int,
-        "bedrooms": int,
-        "bathrooms": int,
-        "home_address": string,
-        "sf": int,
-        "home_image": url string
-    }
-]
+{
+    "neighborhood": "VARCHAR",
+    "houseId": "uuid",
+    "transit_score": "INT",
+    "walk_score": "INT",
+    "value_inc_dec_past": "INT",
+    "value_inc_dec_future": "INT",
+    "median_value": "INT",
+    "home_cost": "INT",
+    "bedrooms": "INT",
+    "bathrooms": "INT",
+    "home_address": "VARCHAR",
+    "sf": "INT",
+    "home_image": "VARCHAR"
+}
 ```
 
 
@@ -67,14 +74,20 @@ ______________________________________________________
 
 ```json
 {
- "id": int,
- "neighborhood": string,
- "transit_score": int,
- "walk_score": int,
- "value_inc_dec_past": int,
- "value_inc_dec_future": int,
- "median_value": int
-  }
+    "neighborhood": "VARCHAR",
+    "houseId": "uuid",
+    "transit_score": "INT",
+    "walk_score": "INT",
+    "value_inc_dec_past": "INT",
+    "value_inc_dec_future": "INT",
+    "median_value": "INT",
+    "home_cost": "INT",
+    "bedrooms": "INT",
+    "bathrooms": "INT",
+    "home_address": "VARCHAR",
+    "sf": "INT",
+    "home_image": "VARCHAR"
+}
 ```
 ______________________________________________________
 ### PATCH
