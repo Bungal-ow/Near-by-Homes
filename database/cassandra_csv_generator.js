@@ -21,6 +21,7 @@ const csvWriter = createCsvWriter({
     ]
 });
 
+
 const makeNeighborhood = (pool) => {
     console.time('neighborhoodCSV')
     let records = [];
@@ -36,7 +37,8 @@ const makeNeighborhood = (pool) => {
         const bathrooms = bedrooms - faker.random.number({ min: 1, max: 2 });
         const homeAddress = faker.address.streetName() + ' ' + streetSuff[Math.floor(Math.random() * streetSuff.length)];
         const sf = bedrooms * faker.random.number({ min: 750, max: 950 });
-        const home_image = `https://bungal-ow.s3-us-west-1.amazonaws.com/p${faker.random.number({ min: 1, max: 429 })}.jpg`
+        // for home_image the pre-url is https://bungal-ow.s3-us-west-1.amazonaws.com/p{ home_image}.jpg
+        const home_image = `${faker.random.number({ min: 1, max: 429 })}`
         const record = {
             neighborhood: neighborhoods,
             houseId: i,

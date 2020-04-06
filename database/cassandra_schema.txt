@@ -1,7 +1,7 @@
 This is the schema for cassandra
 
 CREATE KEYSPACE bungal-ow
-WITH replication = {'class':'SimpleStrategy', 'replication_factor' : 3};;
+WITH replication = {'class':'SimpleStrategy', 'replication_factor' : 3};
 
 CREATE TABLE bungal-ow.houses (
     neighborhood VARCHAR,
