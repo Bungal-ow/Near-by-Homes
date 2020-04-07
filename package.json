@@ -12,7 +12,8 @@
     "start-dev": "node server/index.js",
     "populateNeighborhoods": "node database/fakerPopulateNeighborhoods.js",
     "populateHouses": "node database/fakerPopulateHouses.js",
-    "cassandra:csv": "node database/cassandra_csv_generator.js"
+    "cassandra:csv": "node database/cassandra_generate_cvs.js",
+    "cassandra:connect": "node database/connect_cassandra.js"
   },
   "repository": {
     "type": "git",

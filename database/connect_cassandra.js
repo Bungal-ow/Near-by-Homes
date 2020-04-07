@@ -11,7 +11,7 @@ client.connect(function (err) {
 const createKeyspace = () => {
     const query = "CREATE KEYSPACE IF NOT EXISTS bungalow WITH replication = {'class':'SimpleStrategy', 'replication_factor' : 3}";
     client.execute(query);
-    console.log("created keyspace");
+    // console.log("created keyspace");
 }
 
 const createTable = () => {
@@ -20,14 +20,31 @@ const createTable = () => {
     console.log("created table");
 }
 
+// const insertData = () => {
+//     const query = "COPY bungalow.houses (neighborhood, houseId, transit_score, walk_score, value_inc_dec_past, value_inc_dec_future, median_value, home_cost, bedrooms, bathrooms, home_address, sf, home_image) FROM '/Users/peteboxes/Documents/Hack Reactor/Bungal-ow/abode-similar-homes-monthly-cost-neighborhood-facts/database/csv/cassandra_neighborhood.csv' WITH DELIMITER=',' AND HEADER=TRUE"
+//     client.execute(query);
+//     console.log('injected data');
+// }
+
+
+
 const promis = () => {
     return new Promise((resolve, reject) => {
         createKeyspace();
+        console.log('created keyspace')
         resolve(createTable)
     })
 }
 
-promis().then((funct) =>{ funct()});
+
+promis()
+    .then(funct => {return funct();})
+
+
+
+
+
+
 
 // const delay = async () => {
 //     await createKeyspace();
