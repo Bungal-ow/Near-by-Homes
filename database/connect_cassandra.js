@@ -2,7 +2,7 @@ const cassandra = require('cassandra-driver');
 const async = require('async');
 const assert = require('assert');
 
-const client = new cassandra.Client({contactPoints:['127.0.0.1'], localDataCenter: 'datacenter1'});
+const client = new cassandra.Client({ contactPoints: ['127.0.0.1'], localDataCenter: 'datacenter1' });
 
 client.connect(function (err) {
     assert.ifError(err);
@@ -37,7 +37,7 @@ const promis = () => {
 
 
 promis()
-    .then(funct => {return funct();})
+    .then(funct => { return funct(); })
 
 
 // const delay = async () => {
