@@ -25,6 +25,7 @@ class App extends React.Component {
   componentDidMount() {
     const splitUrl = window.location.href.split('/');
     const index = splitUrl[3];
+    console.log('hi')
     this.getHouseData(index);
   }
 

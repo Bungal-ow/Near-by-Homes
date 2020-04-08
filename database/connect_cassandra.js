@@ -27,7 +27,6 @@ const createTable = () => {
 // }
 
 
-
 const promis = () => {
     return new Promise((resolve, reject) => {
         createKeyspace();
@@ -41,11 +40,6 @@ promis()
     .then(funct => {return funct();})
 
 
-
-
-
-
-
 // const delay = async () => {
 //     await createKeyspace();
 //     await createTable();
@@ -53,21 +47,3 @@ promis()
 // }
 
 // delay();
-
-
-
-
-
-
-// //insert
-// const query = 'INSERT INTO users (key, name, email, birthdate) VALUES (?, ?, ?)';
-// const params = ['mick-jagger', 'Sir Mick Jagger', 'mick@rollingstones.com', new Date(1943, 6, 26)];
-// client.execute(query, params, { prepare: true }, function (err) {
-//   assert.ifError(err);
-//   //Inserted in the cluster
-// });
-
-// // query
-// const query = 'SELECT name, email, birthdate FROM users WHERE key = ?';
-// // Set the prepare flag in your queryOptions
-// client.execute(query, ['mick-jagger'], { prepare: true }, callback);

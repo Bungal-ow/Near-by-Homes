@@ -18,12 +18,10 @@ CREATE TABLE neighborhoods (
 CREATE TABLE houses (
     id SERIAL integer PRIMARY KEY,
     neighborhood_id integer,
-    neighborhood varchar (20) NOT NULL,
     home_cost integer NOT NULL,
     bedrooms integer NOT NULL,
     bathrooms integer NOT NULL,
     home_address varchar (30) NOT NULL,
     sf integer NOT NULL,
-    home_image varchar (7) NOT NULL,
-    subs varchar,
+    home_image varchar (7) NOT NULL
 );
