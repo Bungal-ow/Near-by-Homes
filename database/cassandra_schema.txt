@@ -3,9 +3,10 @@ This is the schema for cassandra
 CREATE KEYSPACE bungal-ow
 WITH replication = {'class':'SimpleStrategy', 'replication_factor' : 3};
 
-CREATE TABLE bungal-ow.houses (
+CREATE TABLE bungalow.houses (
+    neighborhoodId INT,
+    houseId INT,
     neighborhood VARCHAR,
-    houseId uuid,
     transit_score INT,
     walk_score INT,
     value_inc_dec_past INT,
@@ -16,6 +17,6 @@ CREATE TABLE bungal-ow.houses (
     bathrooms INT,
     home_address VARCHAR,
     sf INT,
-    home_image VARCHAR
-    PRIMARY KEY ((neighborhood, houseId), (home_cost)) WITH CLUSTERIMG ORDER BY (home_cost)
-)
+    home_image VARCHAR,
+    PRIMARY KEY (neighborhoodId, houseId)
+)    

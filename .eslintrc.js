@@ -24,6 +24,8 @@ module.exports = {
   ],
   rules: {
     "react/prop-types": 0,
+    "camelcase": 0,
+    "linebreak-style": 0,
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "import/extensions": [2, "always"]
   },

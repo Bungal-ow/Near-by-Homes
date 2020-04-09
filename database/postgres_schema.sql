@@ -3,6 +3,7 @@ DROP DATABASE IF EXISTS bungalow;
 CREATE DATABASE bungalow;
 \c bungalow;
 
+DROP TABLE IF EXISTS neighborhoods;
 CREATE TABLE neighborhoods (
     id SERIAL PRIMARY KEY,
     neighborhood VARCHAR (40) NOT NULL,
@@ -13,6 +14,10 @@ CREATE TABLE neighborhoods (
     median_value INTEGER NOT NULL
 );
 
+
+-- COPY neighborhoods (id, neighborhood, transit_score, walk_score, value_inc_dec_past, value_inc_dec_future, median_value) FROM '/Users/peteboxes/Documents/hackReactor/Bungal-ow/neighborhoods/database/csv/postgres_neighborhood.csv' DELIMITER ',' CSV HEADER;
+
+DROP TABLE IF EXISTS houses;
 CREATE TABLE houses (
     id SERIAL PRIMARY KEY,
     neighborhood_id INTEGER,
@@ -24,6 +29,7 @@ CREATE TABLE houses (
     home_image VARCHAR (100) NOT NULL
 );
 
+-- COPY houses (id, neighborhood_id, home_cost, bedrooms, bathrooms, home_address, sf, home_image) FROM '/Users/peteboxes/Documents/hackReactor/Bungal-ow/neighborhoods/database/csv/postgres_houses.csv' DELIMITER ',' CSV HEADER;
 
 
 

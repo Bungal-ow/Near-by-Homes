@@ -2,20 +2,22 @@
 
 const faker = require('faker');
 const fs = require('fs');
-const { neighborhoods_names } = require('./premade_text.js')
+const { neighborhoods_names } = require('./premade_text.js');
 
 const writeUsers = fs.createWriteStream('./database/csv/postgres_neighborhood.csv');
+// define headers
 writeUsers.write('id, neighborhood,transit_score, walk_score, value_inc_dec_past, value_inc_dec_future, median_value\n', 'utf8');
 
+// write 200,000 neighborhoods
 function writeTenMillionUsers(writer, encoding, callback) {
-  let i = 29;
+  let i = 200000;
   let id = 0;
   function write() {
     let ok = true;
     do {
       i -= 1;
       id += 1;
-      const neighborhoods = neighborhoods_names[i];
+      const neighborhoods = neighborhoods_names[faker.random.number({ min: 0, max: 29 })];
       const transitScore = faker.random.number({ min: 70, max: 99 });
       const walkScore = faker.random.number({ min: 70, max: 99 });
       const valueIncDecPast = faker.random.number({ min: -3, max: 4 });

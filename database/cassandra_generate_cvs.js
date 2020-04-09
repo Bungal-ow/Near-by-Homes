@@ -5,7 +5,7 @@ const fs = require('fs');
 const { streetSuff, neighborhoods_names } = require('./premade_text.js')
 
 const writeUsers = fs.createWriteStream('./database/csv/cassandra_neighborhood.csv');
-writeUsers.write('neighborhood,houseId,transit_score, walk_score, value_inc_dec_past, value_inc_dec_future, median_value, home_cost, bedrooms, bathrooms, home_address, sf, home_image\n', 'utf8');
+writeUsers.write('neighborhoodId,houseId,neighborhood,transit_score, walk_score, value_inc_dec_past, value_inc_dec_future, median_value, home_cost, bedrooms, bathrooms, home_address, sf, home_image\n', 'utf8');
 
 function writeTenMillionUsers(writer, encoding, callback) {
   let i = 10000000;
@@ -15,6 +15,7 @@ function writeTenMillionUsers(writer, encoding, callback) {
     do {
       i -= 1;
       houseIndex += 1;
+      const neighborhoodId = faker.random.number({ min: 1, max: 200000 });
       const neighborhoods = neighborhoods_names[faker.random.number({ min: 0, max: (neighborhoods_names.length - 1) })];
       const transitScore = faker.random.number({ min: 70, max: 99 });
       const walkScore = faker.random.number({ min: 70, max: 99 });
@@ -28,7 +29,7 @@ function writeTenMillionUsers(writer, encoding, callback) {
       const sf = bedrooms * faker.random.number({ min: 750, max: 950 });
       // for home_image the pre-url is https://bungal-ow.s3-us-west-1.amazonaws.com/p{ home_image}.jpg
       const home_image = `${faker.random.number({ min: 1, max: 429 })}`;
-      const data = `${neighborhoods},${houseIndex},${transitScore},${walkScore},${valueIncDecPast},${valueIncDecFuture},${medianValue},${homeCost},${bedrooms},${bathrooms},${homeAddress},${sf},${home_image}\n`;
+      const data = `${neighborhoodId},${houseIndex},${neighborhoods},${transitScore},${walkScore},${valueIncDecPast},${valueIncDecFuture},${medianValue},${homeCost},${bedrooms},${bathrooms},${homeAddress},${sf},${home_image}\n`;
       if (i === 0) {
         writer.write(data, encoding, callback);
       } else {
