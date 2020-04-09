@@ -25,6 +25,7 @@ class App extends React.Component {
   componentDidMount() {
     const splitUrl = window.location.href.split('/');
     const index = splitUrl[3];
+    console.log('hi')
     this.getHouseData(index);
   }
 
@@ -51,6 +52,7 @@ class App extends React.Component {
   getHouseData(index) {
     axios.get('/api/houses')
       .then((response) => {
+        console.log(response)
         const { house, neighborhood } = this.state;
         if (!Object.keys(house).length) {
           this.setState({
