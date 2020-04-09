@@ -10,10 +10,9 @@
     "build:react": "webpack -d --watch",
     "start": "nodemon server/index.js",
     "start-dev": "node server/index.js",
-    "populateNeighborhoods": "node database/fakerPopulateNeighborhoods.js",
-    "populateHouses": "node database/fakerPopulateHouses.js",
-    "cassandra:csv": "node database/cassandra_generate_cvs.js",
-    "cassandra:connect": "node database/connect_cassandra.js"
+    "build:postgres-houses-csv": "node database/postgres_houses_csv.js",
+    "build:postgres-neighborhood-csv": "node database/postgres_neighborhoods_csv.js",
+    "seed": "psql -d postgres -a -f database/postgres_schema.sql"
   },
   "repository": {
     "type": "git",
