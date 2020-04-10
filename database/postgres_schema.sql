@@ -36,4 +36,4 @@ COPY houses (id, neighborhood_id, home_cost, bedrooms, bathrooms, home_address, 
 -- ALTER TABLE houses ADD CONSTRAINT neighborhood_fk FOREIGN KEY (neighborhood_id) REFERENCES neighborhoods (id);
 
 
-CREATE INDEX neighborhood_index ON houses (neighborhood_id);
+-- CREATE INDEX neighborhood_index ON houses (neighborhood_id);
