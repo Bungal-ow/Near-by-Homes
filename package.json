@@ -70,6 +70,8 @@
     "jest": "^25.1.0",
     "jest-environment-enzyme": "^7.1.2",
     "jest-enzyme": "^7.1.2",
+    "k6": "0.0.0",
+    "newrelic": "^6.5.0",
     "webpack": "^4.42.0",
     "webpack-cli": "^3.3.11"
   }
