@@ -26,16 +26,11 @@ class NearbyHomes extends React.Component {
 
   componentDidMount() {
     const { neighborhood } = this.props;
-
-    this.getHouseData(neighborhood);
+    this.getHouseData(neighborhood.id);
   }
 
-  getHouseData(neighborhood) {
-    Axios.get('/api/houses', {
-      params: {
-        name: neighborhood.neighborhood,
-      },
-    })
+  getHouseData(neighborhood_id) {
+    Axios.get(`/api/houses/${neighborhood_id}`)
       .then((response) => {
         this.setState({
           nearbyHomes: response.data,

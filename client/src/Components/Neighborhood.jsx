@@ -25,42 +25,28 @@ class App extends React.Component {
   componentDidMount() {
     const splitUrl = window.location.href.split('/');
     const index = splitUrl[3];
-    console.log('hi')
     this.getHouseData(index);
   }
 
   getNeighborhoodData(neighborhood) {
-    axios.get('/api/neighborhoods', {
-      params: {
-        name: neighborhood,
-      },
-    })
+    axios.get(`/api/neighborhoods/${neighborhood}`)
       .then((response) => {
-        const { house } = this.state;
         this.setState({
-          house: { ...house },
-          houses: response.data,
-          neighborhood: response.data[0],
+          neighborhood: response.data,
         });
-        // console.log(response.data[0]);
-      })
-      .catch((err) => {
-        throw err;
       });
   }
 
   getHouseData(index) {
-    axios.get('/api/houses')
+    axios.get(`/api/houses/${index}`)
       .then((response) => {
-        console.log(response)
         const { house, neighborhood } = this.state;
         if (!Object.keys(house).length) {
           this.setState({
-            house: response.data[index],
+            house: response.data[0],
             houses: response.data,
             neighborhood: { ...neighborhood },
           });
-          // console.log(this.state.houses);
         } else {
           this.setState({
             house: { ...house },
@@ -68,7 +54,7 @@ class App extends React.Component {
             neighborhood: { ...neighborhood },
           });
         }
-        this.getNeighborhoodData(this.state.house.neighborhood);
+        this.getNeighborhoodData(this.state.house.neighborhood_id);
       })
       .catch((err) => {
         throw err;
@@ -94,7 +80,7 @@ class App extends React.Component {
     return (
       <div id="appContainer">
         <h2 id="neighborhoodHeader">
-          Neighborhood: {currentHouse ? currentHouse.neighborhood : ''}
+          Neighborhood: {currentHouse ? neighborhood.neighborhood : ''}
         </h2>
         {scores}
         {stats}

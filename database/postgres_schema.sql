@@ -3,7 +3,7 @@ DROP DATABASE IF EXISTS bungalow;
 CREATE DATABASE bungalow;
 \c bungalow;
 
-DROP TABLE IF EXISTS neighborhoods;
+DROP TABLE IF EXISTS neighborhoods cascade;
 CREATE TABLE neighborhoods (
     id SERIAL PRIMARY KEY,
     neighborhood VARCHAR (40) NOT NULL,
@@ -17,7 +17,7 @@ CREATE TABLE neighborhoods (
 
 COPY neighborhoods (id, neighborhood, transit_score, walk_score, value_inc_dec_past, value_inc_dec_future, median_value) FROM '/Users/peteboxes/Documents/hackReactor/Bungal-ow/neighborhoods/database/csv/postgres_neighborhood.csv' DELIMITER ',' CSV HEADER;
 
-DROP TABLE IF EXISTS houses;
+DROP TABLE IF EXISTS houses cascade;
 CREATE TABLE houses (
     id SERIAL PRIMARY KEY,
     neighborhood_id INTEGER,
@@ -33,7 +33,9 @@ COPY houses (id, neighborhood_id, home_cost, bedrooms, bathrooms, home_address, 
 
 
 -- Below code is to create the foreign key. Do not uncomment the code and run. Either copy it to psql or run it from a seperat file.
--- ALTER TABLE houses ADD CONSTRAINT neighborhood_fk FOREIGN KEY (neighborhood_id) REFERENCES neighborhoods (id);
+ALTER TABLE houses ADD CONSTRAINT neighborhood_fk FOREIGN KEY (neighborhood_id) REFERENCES neighborhoods (id);
 
 
--- CREATE INDEX neighborhood_index ON houses (neighborhood_id);
+CREATE INDEX neighborhood_index ON houses (neighborhood_id);
+
+CLUSTER houses USING neighborhood_index;
