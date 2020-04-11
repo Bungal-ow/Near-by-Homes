@@ -3,8 +3,8 @@ const { check, sleep } = require('k6');
 
 export const options = {
     stages: [
-        { duration: '1s', target: 500 },
-        { duration: '30s', target: 5000 },
+        { duration: '1s', target: 100 },
+        { duration: '30s', target: 6000 },
     ],
 };
 
