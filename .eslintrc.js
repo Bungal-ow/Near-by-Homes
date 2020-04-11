@@ -26,6 +26,10 @@ module.exports = {
     "react/prop-types": 0,
     "camelcase": 0,
     "linebreak-style": 0,
+    "no-console": 0,
+    "no-path-concat": 0,
+    "prefer-template": 0,
+    "indent": 0,
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "import/extensions": [2, "always"]
   },

@@ -15,7 +15,7 @@ CREATE TABLE neighborhoods (
 );
 
 
--- COPY neighborhoods (id, neighborhood, transit_score, walk_score, value_inc_dec_past, value_inc_dec_future, median_value) FROM '/Users/peteboxes/Documents/hackReactor/Bungal-ow/neighborhoods/database/csv/postgres_neighborhood.csv' DELIMITER ',' CSV HEADER;
+COPY neighborhoods (id, neighborhood, transit_score, walk_score, value_inc_dec_past, value_inc_dec_future, median_value) FROM '/Users/peteboxes/Documents/hackReactor/Bungal-ow/neighborhoods/database/csv/postgres_neighborhood.csv' DELIMITER ',' CSV HEADER;
 
 DROP TABLE IF EXISTS houses;
 CREATE TABLE houses (
@@ -29,14 +29,11 @@ CREATE TABLE houses (
     home_image VARCHAR (100) NOT NULL
 );
 
--- COPY houses (id, neighborhood_id, home_cost, bedrooms, bathrooms, home_address, sf, home_image) FROM '/Users/peteboxes/Documents/hackReactor/Bungal-ow/neighborhoods/database/csv/postgres_houses.csv' DELIMITER ',' CSV HEADER;
-
-
-
-
+COPY houses (id, neighborhood_id, home_cost, bedrooms, bathrooms, home_address, sf, home_image) FROM '/Users/peteboxes/Documents/hackReactor/Bungal-ow/neighborhoods/database/csv/postgres_houses.csv' DELIMITER ',' CSV HEADER;
 
 
 -- Below code is to create the foreign key. Do not uncomment the code and run. Either copy it to psql or run it from a seperat file.
 -- ALTER TABLE houses ADD CONSTRAINT neighborhood_fk FOREIGN KEY (neighborhood_id) REFERENCES neighborhoods (id);
 
-    
+
+-- CREATE INDEX neighborhood_index ON houses (neighborhood_id);
