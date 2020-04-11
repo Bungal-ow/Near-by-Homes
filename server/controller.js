@@ -1,19 +1,15 @@
-const faker = require('faker');
 const model = require('./model.js');
 
-
 const get_neighborhoods = (req, res) => {
-    const FAKE = faker.random.number({ min: 1, max: 200000 });
     const { id } = req.params;
-    model.get_neighborhoods(FAKE, (result) => {
+    model.get_neighborhoods(id, (result) => {
         res.send(result);
     });
 };
 
 const get_houses = (req, res) => {
-    const FAKE = faker.random.number({ min: 1, max: 200000 });
     const { neighborhood_id } = req.params;
-    model.get_houses(FAKE, (result) => {
+    model.get_houses(neighborhood_id, (result) => {
         res.send(result);
     });
 };
