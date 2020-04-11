@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
+
 const controller = require('./controller.js');
 
 const port = 3001;
@@ -11,17 +12,17 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // get information on a neighborhood.
-app.get('/api/neighborhoods', (req, res) => {
+app.get('/api/neighborhoods/:id', (req, res) => {
   controller.get_neighborhoods(req, res);
 });
 
 // get 12 related homes.
-app.get('/api/houses', (req, res) => {
+app.get('/api/houses/:neighborhood_id', (req, res) => {
   controller.get_houses(req, res);
 });
 
 // update house's price.
-app.patch('/api/houses', (req, res) => {
+app.patch('/api/houses/:id/:neighborhood_id', (req, res) => {
   controller.patch_house(req, res);
 });
 
@@ -31,7 +32,7 @@ app.post('/api/houses', (req, res) => {
 });
 
 // delete a hone from the database.
-app.delete('/api/houses', (req, res) => {
+app.delete('/api/houses/:id', (req, res) => {
   controller.delete_house(req, res);
 });
 

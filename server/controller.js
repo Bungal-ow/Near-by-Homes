@@ -1,23 +1,26 @@
+const faker = require('faker');
 const model = require('./model.js');
 
+
 const get_neighborhoods = (req, res) => {
-    const neigh_id = req.query.id;
-    model.get_neighborhoods(neigh_id, (result) => {
+    const FAKE = faker.random.number({ min: 1, max: 200000 });
+    const { id } = req.params;
+    model.get_neighborhoods(FAKE, (result) => {
         res.send(result);
     });
 };
 
 const get_houses = (req, res) => {
-    const neigh_id = req.query.neighborhood_id;
-    model.get_houses(neigh_id, (result) => {
+    const FAKE = faker.random.number({ min: 1, max: 200000 });
+    const { neighborhood_id } = req.params;
+    model.get_houses(FAKE, (result) => {
         res.send(result);
     });
 };
 
 const patch_house = (req, res) => {
-    const house_id = req.query.id;
-    const neigh_id = req.query.neighborhood_id;
-    model.patch_house(house_id, neigh_id, (updated) => {
+    const { id, neighborhood_id } = req.params;
+    model.patch_house(id, neighborhood_id, (updated) => {
         const houseId = updated.id;
         const neighborhood = updated.neighborhood_id;
         res.send(`House #${houseId} has been updated\n This house is now listed in neighborhood id${neighborhood}`);
@@ -34,7 +37,7 @@ const post_house = (req, res) => {
         home_address,
         sf,
         home_image,
-    } = req;
+    } = req.query;
     model.post_house(id, neighborhood_id,
     home_cost, bedrooms, bathrooms, home_address, sf, home_image, (result) => {
         const newId = result.id;
@@ -43,8 +46,8 @@ const post_house = (req, res) => {
 };
 
 const delete_house = (req, res) => {
-    const id_toDelete = req.query.id;
-    model.delete_house(id_toDelete, (deleted) => {
+    const { id } = req.params;
+    model.delete_house(id, (deleted) => {
         res.send(`delete house id${deleted}`);
     });
 };

@@ -5,7 +5,7 @@ const get_neighborhoods = (neigh_id, callback) => {
         if (err) {
             console.log(err);
         } else {
-            callback(res);
+            callback(res.rows);
         }
     });
 };
@@ -15,7 +15,7 @@ const get_houses = (neigh_id, callback) => {
         if (err) {
             console.log(err);
         } else {
-            callback(res);
+            callback(res.rows);
         }
     });
 };
