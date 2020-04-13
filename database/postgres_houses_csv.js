@@ -2,7 +2,7 @@
 
 const faker = require('faker');
 const fs = require('fs');
-const { streetSuff, neighborhoods_names } = require('./premade_text.js')
+const { streetSuff } = require('./premade_text.js');
 
 const writeUsers = fs.createWriteStream('./database/csv/postgres_houses.csv');
 writeUsers.write('id, neighborhood_id, home_cost, bedrooms, bathrooms, home_address, sf, home_image\n', 'utf8');
