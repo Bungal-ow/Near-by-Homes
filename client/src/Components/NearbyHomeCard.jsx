@@ -24,7 +24,7 @@ class NearbyHomeCard extends React.Component {
 
   componentDidMount() {
     const { id } = this.props;
-    this.getHeartStatus(id);
+    // this.getHeartStatus(id);
   }
 
   getHeartStatus(id) {
@@ -56,17 +56,17 @@ class NearbyHomeCard extends React.Component {
     const { filled } = this.state;
     let heartType;
 
-    axios.put('/api/houses', {
-      params: {
-        houseId: id,
-      },
-    })
-      .then((response) => {
-        this.getHeartStatus(id);
-      })
-      .catch((err) => {
-        throw err;
-      });
+    // axios.put('/api/houses', {
+    //   params: {
+    //     houseId: id,
+    //   },
+    // })
+    //   .then((response) => {
+    //     this.getHeartStatus(id);
+    //   })
+    //   .catch((err) => {
+    //     throw err;
+    //   });
   }
 
   render() {
@@ -76,7 +76,7 @@ class NearbyHomeCard extends React.Component {
     return (
       <div className="houseCard">
         <div className="cardImageContainer">
-          <img src={`https://hrfecimages.s3-us-west-1.amazonaws.com/${home.home_image}`} alt="home" className="cardImage" />
+          <img src={`https://bungal-ow.s3-us-west-1.amazonaws.com/p${home.home_image}.jpg`} alt="home" className="cardImage" />
         </div>
         <div onClick={() => this.handleHeartClick(id)}>{heart}</div>
         <div className="cardInfo">
