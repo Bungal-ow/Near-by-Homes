@@ -35,7 +35,6 @@ COPY houses (id, neighborhood_id, home_cost, bedrooms, bathrooms, home_address, 
 -- Below code is to create the foreign key. Do not uncomment the code and run. Either copy it to psql or run it from a seperat file.
 ALTER TABLE houses ADD CONSTRAINT neighborhood_fk FOREIGN KEY (neighborhood_id) REFERENCES neighborhoods (id);
 
-
 CREATE INDEX neighborhood_index ON houses (neighborhood_id);
 
 CLUSTER houses USING neighborhood_index;
