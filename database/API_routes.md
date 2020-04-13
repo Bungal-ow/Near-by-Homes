@@ -3,109 +3,61 @@ v2 for SDC project
 
 ### POST
 
-`/api/houses/{ houseId }`
+`/api/houses`
 
 **Purpose**: create a new home
 
 ______________________________________________________
 ### GET
 
-`/api/houses/{ houseId }`
+`/api/houses/:neighborhood_id`
 
-**Purpose**: Get all the information on a house
+**Purpose**: Get 12 houses by neighborhood id
 
-**Response**: JSON object containing a house's information
+**Response**: JSON object containing an array houses
 ```json
-{
-    "neighborhood": "VARCHAR",
-    "houseId": "uuid",
-    "transit_score": "INT",
-    "walk_score": "INT",
-    "value_inc_dec_past": "INT",
-    "value_inc_dec_future": "INT",
-    "median_value": "INT",
-    "home_cost": "INT",
-    "bedrooms": "INT",
-    "bathrooms": "INT",
-    "home_address": "VARCHAR",
-    "sf": "INT",
-    "home_image": "VARCHAR"
-}
+[
+    {
+        id: int,
+        neighborhood_id: int,
+        home_cost: int,
+        bedrooms: int,
+        bathrooms: int,
+        home_address: string,
+        sf: int,
+        home_image int
+    }
+]    
 ```
 
 
-`/api/houses?neighborhood={neighborhood name}`
+`/api/neighborhoods/:id`
 
-**Purpose**: Retrieving all houses in the neighborhood
+**Purpose**: Retrieving information by neighborhood id
 
-**Data Params**
-
-`{ name: <neightborhood name> }`
-
-**Response**: JSON object containing an array of homes in the neighborhood.
+**Response**: JSON object containing information on a sepcific neighborhood
 ```json
 {
-    "neighborhood": "VARCHAR",
-    "houseId": "uuid",
-    "transit_score": "INT",
-    "walk_score": "INT",
-    "value_inc_dec_past": "INT",
-    "value_inc_dec_future": "INT",
-    "median_value": "INT",
-    "home_cost": "INT",
-    "bedrooms": "INT",
-    "bathrooms": "INT",
-    "home_address": "VARCHAR",
-    "sf": "INT",
-    "home_image": "VARCHAR"
-}
-```
-
-
-`/api/neighborhoods`
-
-**Purpose**: Retriving the neighborhood information.
-
-**Data Params**
-
-`{ name: <neighborhood name> }`
-
-**Response**: information on the neighborhood.
-
-```json
-{
-    "neighborhood": "VARCHAR",
-    "houseId": "uuid",
-    "transit_score": "INT",
-    "walk_score": "INT",
-    "value_inc_dec_past": "INT",
-    "value_inc_dec_future": "INT",
-    "median_value": "INT",
-    "home_cost": "INT",
-    "bedrooms": "INT",
-    "bathrooms": "INT",
-    "home_address": "VARCHAR",
-    "sf": "INT",
-    "home_image": "VARCHAR"
+    id: int,
+    neighborhood: string,
+    transit_score: int,
+    walk_score: int,
+    value_inc_dec_past: int,
+    value_inc_dec_future: int,
+    median_value: int
 }
 ```
 ______________________________________________________
 ### PATCH
 
-`/api/houses/{ houseId }`
+`/api/houses/:id/:home_cost`
 
-**Purpose**: Update info on house.
+**Purpose**: Update house's price.
 
-**Data Params**
-
-`{ houseId: int }`
 ______________________________________________________
 ### DELETE
 
-`/api/houses/{ houseId }`
+`/api/houses/:id`
 
 **Purpose**: Removing a house.
 
-**Data Params**
-
-`{ houseId: int }`

@@ -15,11 +15,11 @@ const get_houses = (req, res) => {
 };
 
 const patch_house = (req, res) => {
-    const { id, neighborhood_id } = req.params;
-    model.patch_house(id, neighborhood_id, (updated) => {
+    const { id, home_cost } = req.params;
+    model.patch_house(id, home_cost, (updated) => {
         const houseId = updated.id;
-        const neighborhood = updated.neighborhood_id;
-        res.send(`House #${houseId} has been updated\n This house is now listed in neighborhood id${neighborhood}`);
+        const { homeCost } = updated.home_cost;
+        res.send(`House #${houseId} has been updated\n This house is now cost${homeCost}`);
     });
 };
 
