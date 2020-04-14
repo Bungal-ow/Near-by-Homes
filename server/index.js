@@ -18,7 +18,7 @@ app.get('/api/neighborhoods/:id', (req, res) => {
 });
 
 // get 12 related homes.
-app.get('/api/houses/:home_cost', (req, res) => {
+app.get('/api/houses/:neighborhood_id', (req, res) => {
   controller.get_houses(req, res);
 });
 

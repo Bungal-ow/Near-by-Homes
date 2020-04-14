@@ -17,7 +17,7 @@ function writeTenMillionUsers(writer, encoding, callback) {
     do {
       i -= 1;
       id += 1;
-      const neighborhoods = neighborhoods_names[faker.random.number({ min: 0, max: 29 })];
+      const neighborhoods = neighborhoods_names[faker.random.number({ min: 0, max: 27 })];
       const transitScore = faker.random.number({ min: 70, max: 99 });
       const walkScore = faker.random.number({ min: 70, max: 99 });
       const valueIncDecPast = faker.random.number({ min: -3, max: 4 });
