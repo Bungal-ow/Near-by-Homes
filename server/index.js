@@ -39,6 +39,9 @@ app.delete('/api/houses/:id', (req, res) => {
   controller.delete_house(req, res);
 });
 
+app.get('/loaderio-654a19cdd4f7ec796db3f8cd975685e7.txt', (req, res) => {
+  res.sendFile(path.resolve(__dirname + '/../loaderio-654a19cdd4f7ec796db3f8cd975685e7.txt'));
+});
 
 app.get('/*', (req, res) => {
   res.sendFile(path.resolve(__dirname + '/../client/dist/index.html'));
